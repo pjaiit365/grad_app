@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:grad_app/Screens/Login/Components/Body.dart';
+import 'package:grad_app/Screens/Registration/Components/body.dart';
 
-class LoginScreen extends StatelessWidget {
+class RegistrationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
