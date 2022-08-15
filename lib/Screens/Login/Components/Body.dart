@@ -19,47 +19,52 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return Background(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const Text(
-            'LOGIN',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
+    return SingleChildScrollView(
+      child: Background(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'LOGIN',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-          SvgPicture.asset(
-            'assets/icons/login.svg',
-            height: size.height * 0.3,
-          ),
-          RoundedInputTextField(
-            hintText: 'Username',
-            onChanged: (value) {},
-          ),
-          RoundedPasswordField(
-            onChanged: (value) {},
-          ),
-          RoundedButton(
-            text: 'LOGIN',
-            press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) {
-                  return DashboardScreen();
-                }),
-              );
-            },
-          ),
-          AlreadyHaveAnAccount(
-            login: true,
-            press: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return RegistrationScreen();
-              }));
-            },
-          )
-        ],
+            SizedBox(height: size.height * 0.03),
+            SvgPicture.asset(
+              'assets/icons/login.svg',
+              height: size.height * 0.3,
+            ),
+            SizedBox(height: size.height * 0.03),
+            RoundedInputTextField(
+              hintText: 'Username',
+              onChanged: (value) {},
+            ),
+            RoundedPasswordField(
+              onChanged: (value) {},
+            ),
+            RoundedButton(
+              text: 'LOGIN',
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return const DashboardScreen();
+                  }),
+                );
+              },
+            ),
+            SizedBox(height: size.height * 0.02),
+            AlreadyHaveAnAccount(
+              login: true,
+              press: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return RegistrationScreen();
+                }));
+              },
+            )
+          ],
+        ),
       ),
     );
   }

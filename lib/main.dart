@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:grad_app/Screens/Login/login_screen.dart';
-
+import 'package:grad_app/Screens/Payment/success_screen.dart';
+import 'package:grad_app/Screens/Registration/registration_screen.dart';
+import 'package:grad_app/Screens/Splash/splash_screen.dart';
 import 'package:grad_app/constants.dart';
+import 'Screens/Payment/payment_screen.dart';
 import 'Screens/Welcome/welcome_screen.dart';
 
 void main() {
@@ -16,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'G to G',
       theme: ThemeData(
           primaryColor: kprimary, scaffoldBackgroundColor: Colors.white),
-      home: LoginScreen(),
+      home: SuccessScreen(),
     );
   }
 }

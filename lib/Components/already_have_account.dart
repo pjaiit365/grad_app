@@ -13,6 +13,7 @@ class AlreadyHaveAnAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text(
           login ? 'Don\'t have an account?' : 'Already have an account?',
