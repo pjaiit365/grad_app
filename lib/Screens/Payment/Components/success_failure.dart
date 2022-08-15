@@ -21,7 +21,7 @@ class EmptySection extends StatelessWidget {
         Image(
             image: AssetImage(imgSrc
                 ? 'assets/images/success.gif'
-                : 'assets/images/fail.gif'),
+                : 'assets/images/fail.png'),
             height: 150.0),
         Padding(
           padding: const EdgeInsets.only(top: 10),
