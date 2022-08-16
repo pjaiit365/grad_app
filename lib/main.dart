@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grad_app/Screens/Login/login_screen.dart';
 import 'package:grad_app/Screens/Payment/success_screen.dart';
+import 'package:grad_app/Screens/Profile/profile_screen.dart';
 import 'package:grad_app/Screens/Registration/registration_screen.dart';
 import 'package:grad_app/Screens/Splash/splash_screen.dart';
 import 'package:grad_app/constants.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'G to G',
       theme: ThemeData(
           primaryColor: kprimary, scaffoldBackgroundColor: Colors.white),
-      home: SuccessScreen(),
+      home: Splash(title: 'Splash Screen'),
     );
   }
 }

@@ -5,6 +5,7 @@ const kprimaryLightColor = Color(0xFFF1E6FF);
 const kWhiteColor = Color(0xFFFFFFFF);
 const kLightColor = Color(0xFF808080);
 const kDarkColor = Color(0xFF303030);
+const kBackgroundLight = Color(0xFFF5F6F9);
 const kTransparent = Colors.transparent;
 
 const kDarkTextStyle = TextStyle(
