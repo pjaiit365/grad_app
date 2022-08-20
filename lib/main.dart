@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grad_app/Screens/CardPayment/credit_card.dart';
 import 'package:grad_app/Screens/Login/login_screen.dart';
 import 'package:grad_app/Screens/Payment/success_screen.dart';
 import 'package:grad_app/Screens/Profile/profile_screen.dart';
@@ -19,8 +20,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'G to G',
       theme: ThemeData(
-          primaryColor: kprimary, scaffoldBackgroundColor: Colors.white),
-      home: Splash(title: 'Splash Screen'),
+          primaryColor: kprimary,
+          scaffoldBackgroundColor: Colors.white,
+          fontFamily: 'Jaapokki'),
+      home: CrediCard(),
     );
   }
 }

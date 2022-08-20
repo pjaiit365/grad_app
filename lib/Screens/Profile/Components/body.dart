@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grad_app/Components/profile_menu.dart';
 import 'package:grad_app/Components/profile_pic.dart';
+import 'package:grad_app/Screens/Dashboard/dashboard_screen.dart';
+import 'package:grad_app/Screens/Profile/profile_screen.dart';
 import 'package:grad_app/constants.dart';
 
 class Body extends StatelessWidget {
@@ -16,7 +18,26 @@ class Body extends StatelessWidget {
         ProfileMenu(
           svgSrc: 'assets/icons/User Icon.svg',
           menuText: 'My Account',
-          press: () {},
+          press: () {
+            Navigator.pushAndRemoveUntil(
+                context,
+                PageRouteBuilder(pageBuilder: (BuildContext context,
+                    Animation animation, Animation secondaryAnimation) {
+                  return DashboardScreen();
+                }, transitionsBuilder: (BuildContext context,
+                    Animation<double> animation,
+                    Animation<double> secondaryAnimation,
+                    Widget child) {
+                  return new SlideTransition(
+                    position: new Tween<Offset>(
+                      begin: const Offset(1.0, 0.0),
+                      end: Offset.zero,
+                    ).animate(animation),
+                    child: child,
+                  );
+                }),
+                (Route route) => false);
+          },
         ),
         ProfileMenu(
           svgSrc: 'assets/icons/Bell.svg',
@@ -36,7 +57,23 @@ class Body extends StatelessWidget {
         ProfileMenu(
           svgSrc: 'assets/icons/User Icon.svg',
           menuText: 'Log Out',
-          press: () {},
+          press: () {
+            FlatButton(
+              onPressed: () => showDialog(
+                context: context,
+                builder: (_) => Dialog(
+                  child: Container(), //Your buttons here
+                ),
+              ),
+              child: new Text(
+                'Logout',
+                style: new TextStyle(
+                  fontSize: 17.0,
+                  color: Colors.white,
+                ),
+              ),
+            );
+          },
         ),
       ],
     );
