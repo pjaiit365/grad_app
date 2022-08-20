@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grad_app/Components/profile_menu.dart';
 import 'package:grad_app/Components/profile_pic.dart';
 import 'package:grad_app/Screens/Dashboard/dashboard_screen.dart';
+import 'package:grad_app/Screens/Login/login_screen.dart';
 import 'package:grad_app/Screens/Profile/profile_screen.dart';
 import 'package:grad_app/constants.dart';
 
@@ -58,19 +59,18 @@ class Body extends StatelessWidget {
           svgSrc: 'assets/icons/User Icon.svg',
           menuText: 'Log Out',
           press: () {
-            FlatButton(
-              onPressed: () => showDialog(
-                context: context,
-                builder: (_) => Dialog(
-                  child: Container(), //Your buttons here
-                ),
-              ),
-              child: new Text(
-                'Logout',
-                style: new TextStyle(
-                  fontSize: 17.0,
-                  color: Colors.white,
-                ),
+            ListTile(
+              onTap: () async {
+                await AuthClient.internal().signOut();
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (c) => LoginScreen()),
+                    (r) => false);
+              },
+              leading: Icon(Icons.power_settings_new, color: Colors.black),
+              title: Text(
+                "Logout",
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
             );
           },
@@ -78,4 +78,8 @@ class Body extends StatelessWidget {
       ],
     );
   }
+}
+
+class AuthClient {
+  static internal() {}
 }

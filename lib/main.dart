@@ -18,12 +18,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'G to G',
       theme: ThemeData(
           primaryColor: kprimary,
           scaffoldBackgroundColor: Colors.white,
           fontFamily: 'Jaapokki'),
-      home: CrediCard(),
+      home: ProfileScreen(),
     );
   }
 }

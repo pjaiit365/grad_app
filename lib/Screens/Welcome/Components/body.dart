@@ -22,7 +22,15 @@ class Body extends StatelessWidget {
               "WELCOME TO G to G!",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 15,
+                fontSize: 16,
+              ),
+            ),
+            const Text(
+              "Graduate with ease...",
+              style: TextStyle(
+                fontWeight: FontWeight.normal,
+                fontSize: 14,
+                color: kLightColor,
               ),
             ),
             SizedBox(height: size.height * 0.035),
@@ -34,8 +42,8 @@ class Body extends StatelessWidget {
             SizedBox(height: size.height * 0.05),
             RoundedButton(
               text: "LOGIN",
-              press: () {
-                Navigator.pushReplacement(
+              press: (value) {
+                Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => LoginScreen(),
@@ -47,7 +55,7 @@ class Body extends StatelessWidget {
               text: "SIGN UP",
               color: kprimaryLightColor,
               textColor: Colors.black,
-              press: () {
+              press: (value) {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
