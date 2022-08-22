@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grad_app/Components/profile_menu.dart';
 import 'package:grad_app/Components/profile_pic.dart';
+import 'package:grad_app/Screens/About/about_screen.dart';
 import 'package:grad_app/Screens/Dashboard/dashboard_screen.dart';
 import 'package:grad_app/Screens/Login/login_screen.dart';
 import 'package:grad_app/Screens/Profile/profile_screen.dart';
@@ -48,7 +49,26 @@ class Body extends StatelessWidget {
         ProfileMenu(
           svgSrc: 'assets/icons/Question mark.svg',
           menuText: 'Help Center',
-          press: () {},
+          press: () {
+            Navigator.pushAndRemoveUntil(
+                context,
+                PageRouteBuilder(pageBuilder: (BuildContext context,
+                    Animation animation, Animation secondaryAnimation) {
+                  return AboutScreen();
+                }, transitionsBuilder: (BuildContext context,
+                    Animation<double> animation,
+                    Animation<double> secondaryAnimation,
+                    Widget child) {
+                  return new SlideTransition(
+                    position: new Tween<Offset>(
+                      begin: const Offset(1.0, 0.0),
+                      end: Offset.zero,
+                    ).animate(animation),
+                    child: child,
+                  );
+                }),
+                (Route route) => false);
+          },
         ),
         ProfileMenu(
           svgSrc: 'assets/icons/Settings.svg',

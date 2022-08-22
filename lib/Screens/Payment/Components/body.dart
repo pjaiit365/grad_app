@@ -27,7 +27,7 @@ class Body extends StatelessWidget {
     return Scaffold(
       appBar: DefaultAppBar(
         title: 'Payment',
-        leading: DefaultBackButton(),
+        leading: DefaultBackButton(backButtonColor: Colors.black),
       ),
       body: Column(
         children: [
