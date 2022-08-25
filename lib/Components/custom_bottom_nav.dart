@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grad_app/Screens/Dashboard/dashboard_screen.dart';
+import 'package:grad_app/Screens/Explore/explore_screen.dart';
 import 'package:grad_app/Screens/Profile/profile_screen.dart';
+import 'package:grad_app/Screens/Scheduler/schedule.dart';
 import 'package:grad_app/constants.dart';
 import 'package:grad_app/enum.dart';
 
@@ -52,7 +54,16 @@ class CustomBottomNav extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return ExploreScreen();
+                    },
+                  ),
+                );
+              },
               icon: SvgPicture.asset(
                 'assets/icons/User Icon.svg',
                 color: MenuState.explore == selectedMenu
@@ -61,10 +72,19 @@ class CustomBottomNav extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return ScheduleScreen();
+                    },
+                  ),
+                );
+              },
               icon: SvgPicture.asset(
                 'assets/icons/User Icon.svg',
-                color: MenuState.photoshoot == selectedMenu
+                color: MenuState.schedule == selectedMenu
                     ? kprimary
                     : inActiveIconColor,
               ),
