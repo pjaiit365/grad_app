@@ -7,6 +7,7 @@ const kLightColor = Color(0xFF808080);
 const kDarkColor = Color(0xFF303030);
 const kBackgroundLight = Color(0xFFF5F6F9);
 const kTransparent = Colors.transparent;
+const scheduleLightColor = Color(0xffa79abf);
 
 const kDarkTextStyle = TextStyle(
   fontSize: 20.0,
