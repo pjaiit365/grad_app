@@ -12,7 +12,7 @@ class DefaultBackButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       icon: Icon(Icons.arrow_back_ios, color: backButtonColor),
-      onPressed: () => Navigator.of(context).pop(),
+      onPressed: () => Navigator.pop(context),
     );
   }
 }

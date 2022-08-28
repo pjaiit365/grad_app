@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grad_app/constants.dart';
 
 class SchdeulerTopRow extends StatelessWidget {
   const SchdeulerTopRow({
@@ -14,16 +15,16 @@ class SchdeulerTopRow extends StatelessWidget {
       children: [
         Text(
           'Daily ',
-          style: TextStyle(color: Colors.white, fontSize: 35),
+          style: TextStyle(color: Colors.black, fontSize: 35),
         ),
         Text(
           'Meetings',
-          style: TextStyle(color: scheduleLightColor, fontSize: 35),
+          style: TextStyle(color: Colors.black, fontSize: 35),
         ),
         Spacer(),
         Text(
           'Jan',
-          style: TextStyle(color: Colors.white.withOpacity(0.89), fontSize: 22),
+          style: TextStyle(color: kprimary.withOpacity(0.89), fontSize: 22),
         )
       ],
     );

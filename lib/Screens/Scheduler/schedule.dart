@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grad_app/Components/custom_bottom_nav.dart';
+import 'package:grad_app/Components/date_widget.dart';
+import 'package:grad_app/Components/scheduler_item.dart';
 import 'package:grad_app/constants.dart';
 import 'package:grad_app/enum.dart';
+import 'package:popup_card/popup_card.dart';
 
 import '../../Components/schduler_top_row.dart';
+import '../Scheduler/Components/body.dart';
 
 class ScheduleScreen extends StatefulWidget {
   const ScheduleScreen({Key? key}) : super(key: key);
@@ -19,104 +23,72 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     return Scaffold(
       body: Body(),
       bottomNavigationBar: CustomBottomNav(selectedMenu: MenuState.schedule),
+      floatingActionButton: PopupItemLauncher(
+        tag: 'scheduleTag',
+        child: Material(
+          color: kprimary.withOpacity(0.9),
+          elevation: 2,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          child: Icon(
+            Icons.add,
+            size: 55,
+            color: Colors.white,
+          ),
+        ),
+        popUp: PopUpItem(
+          padding: EdgeInsets.all(0),
+          color: Colors.white,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(12), topRight: Radius.circular(12))),
+          tag: 'scheduleTag',
+          child: PopUpItemBody(),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
 
-class Body extends StatefulWidget {
-  const Body({Key? key}) : super(key: key);
+class PopUpItemBody extends StatelessWidget {
+  const PopUpItemBody({Key? key}) : super(key: key);
 
-  @override
-  State<Body> createState() => _BodyState();
-}
-
-class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
-    //for division between schedules and dates
-    return SafeArea(
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      width: 500,
+      height: size.height,
+      color: Colors.white,
       child: Column(
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 30),
-            decoration: BoxDecoration(
-                color: kprimary,
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(10),
-                    bottomRight: Radius.circular(10))),
-            width: double.infinity,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                SchdeulerTopRow(scheduleLightColor: scheduleLightColor),
-                SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(7, (index) => DateWidget()),
-                )
-              ],
-            ),
-          )
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Spacer(),
+          Container(),
         ],
       ),
     );
   }
 }
 
-class DateWidget extends StatefulWidget {
-  const DateWidget({Key? key}) : super(key: key);
-
-  @override
-  State<DateWidget> createState() => _DateWidgetState();
-}
-
-class _DateWidgetState extends State<DateWidget> {
-  bool _selectDate = true;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        setState(() {
-          _selectDate = !_selectDate;
-        });
-      },
-      child: Container(
-        padding: EdgeInsets.all(8),
-        decoration: _selectDate
-            ? BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: Colors.orangeAccent,
-              )
-            : null,
-        child: Column(
-          children: <Widget>[
-            Text(
-              'Mon',
-              style: TextStyle(
-                color: _selectDate ? Colors.white : scheduleLightColor,
-                fontSize: 17,
-                fontWeight: _selectDate ? FontWeight.bold : FontWeight.normal,
-              ),
-            ),
-            Text(
-              '10',
-              style: TextStyle(
-                  color: _selectDate ? Colors.white : scheduleLightColor,
-                  fontWeight: _selectDate ? FontWeight.bold : FontWeight.normal,
-                  fontSize: 17),
-            ),
-            Container(
-              height: 4.0,
-              width: 4.0,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: _selectDate ? Colors.white : scheduleLightColor,
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
+//
+// floatingActionButton: Padding(
+// padding: const EdgeInsets.only(bottom: 12.0, right: 4),
+// child: FloatingActionButton(
+// elevation: 4,
+// splashColor: Colors.transparent,
+// onPressed: () {},
+// shape:
+// RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+// child: Icon(
+// Icons.add,
+// shadows: [
+// Shadow(offset: Offset(0.1, 0.4), color: kprimary),
+// ],
+// size: 30,
+// ),
+// backgroundColor: kprimary.withOpacity(0.9),
+// ),
+// ),
+// floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,

@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           primaryColor: kprimary,
           scaffoldBackgroundColor: Colors.white,
           fontFamily: 'Jaapokki'),
-      home: ProfileScreen(),
+      home: Splash(),
     );
   }
 }

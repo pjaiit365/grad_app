@@ -3,7 +3,7 @@ import 'package:grad_app/constants.dart';
 
 class AlreadyHaveAnAccount extends StatelessWidget {
   final bool login;
-  final Function press;
+  final VoidCallback press;
   const AlreadyHaveAnAccount({
     Key? key,
     this.login = true,
@@ -20,7 +20,7 @@ class AlreadyHaveAnAccount extends StatelessWidget {
           style: TextStyle(color: kprimary),
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: press,
           child: Text(
             login ? 'Sign Up' : 'Sign In',
             style: TextStyle(

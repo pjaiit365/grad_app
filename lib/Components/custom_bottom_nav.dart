@@ -47,7 +47,7 @@ class CustomBottomNav extends StatelessWidget {
                 );
               },
               icon: SvgPicture.asset(
-                'assets/icons/User Icon.svg',
+                'assets/icons/home.svg',
                 color: MenuState.home == selectedMenu
                     ? kprimary
                     : inActiveIconColor,
@@ -64,8 +64,8 @@ class CustomBottomNav extends StatelessWidget {
                   ),
                 );
               },
-              icon: SvgPicture.asset(
-                'assets/icons/User Icon.svg',
+              icon: Image.asset(
+                'assets/icons/explore.png',
                 color: MenuState.explore == selectedMenu
                     ? kprimary
                     : inActiveIconColor,
@@ -82,8 +82,8 @@ class CustomBottomNav extends StatelessWidget {
                   ),
                 );
               },
-              icon: SvgPicture.asset(
-                'assets/icons/User Icon.svg',
+              icon: Image.asset(
+                'assets/icons/schedule.png',
                 color: MenuState.schedule == selectedMenu
                     ? kprimary
                     : inActiveIconColor,

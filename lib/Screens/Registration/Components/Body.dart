@@ -46,13 +46,29 @@ class Body extends StatelessWidget {
             ),
             RoundedPasswordField(onChanged: (value) {}),
             SizedBox(height: size.height * 0.01),
-            RoundedButton(press: () {}, text: 'SIGNUP'),
+            RoundedButton(
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return DashboardScreen();
+                      },
+                    ),
+                  );
+                },
+                text: 'SIGNUP'),
             SizedBox(height: size.height * 0.005),
             AlreadyHaveAnAccount(
                 press: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return LoginScreen();
-                  }));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return LoginScreen();
+                      },
+                    ),
+                  );
                 },
                 login: false),
             SizedBox(height: size.height * 0.01),

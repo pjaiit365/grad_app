@@ -7,6 +7,7 @@ import 'package:grad_app/Screens/Dashboard/dashboard_screen.dart';
 import 'package:grad_app/Screens/Login/login_screen.dart';
 import 'package:grad_app/Screens/Profile/profile_screen.dart';
 import 'package:grad_app/constants.dart';
+import 'package:popup_card/popup_card.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -78,28 +79,9 @@ class Body extends StatelessWidget {
         ProfileMenu(
           svgSrc: 'assets/icons/User Icon.svg',
           menuText: 'Log Out',
-          press: () {
-            ListTile(
-              onTap: () async {
-                await AuthClient.internal().signOut();
-                Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (c) => LoginScreen()),
-                    (r) => false);
-              },
-              leading: Icon(Icons.power_settings_new, color: Colors.black),
-              title: Text(
-                "Logout",
-                style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-              ),
-            );
-          },
+          press: () {},
         ),
       ],
     );
   }
-}
-
-class AuthClient {
-  static internal() {}
 }

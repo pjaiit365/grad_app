@@ -18,7 +18,7 @@ class ProfileMenu extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: FlatButton(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(23),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         color: kBackgroundLight,
         onPressed: press,

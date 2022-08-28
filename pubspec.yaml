@@ -39,6 +39,7 @@ dependencies:
   google_fonts: ^3.0.1
   firebase_auth: ^3.6.4
   cloud_firestore: ^3.4.5
+  popup_card: ^0.1.0
 
 
 dev_dependencies:

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grad_app/Components/already_have_account.dart';
+import 'package:grad_app/Components/fogot_password.dart';
 import 'package:grad_app/Components/rounded_button.dart';
 import 'package:grad_app/Components/rounded_input_field.dart';
 import 'package:grad_app/Components/rounded_password_field.dart';
-import 'package:grad_app/Components/text_field_container.dart';
 import 'package:grad_app/Screens/Dashboard/dashboard_screen.dart';
 import 'package:grad_app/Screens/ForgotPassword/forgot_password.dart';
 import 'package:grad_app/Screens/Login/Components/background.dart';
-import 'package:grad_app/Screens/Login/login_screen.dart';
 import 'package:grad_app/Screens/Registration/registration_screen.dart';
 import 'package:grad_app/constants.dart';
 
@@ -20,7 +19,6 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
     return SingleChildScrollView(
       child: Background(
         child: Column(
@@ -47,10 +45,11 @@ class Body extends StatelessWidget {
             ),
             ForgotPassword(press: () {
               Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ForgotYourPassword(),
-                  ));
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ForgotYourPassword(),
+                ),
+              );
             }),
             RoundedButton(
               text: 'LOGIN',
@@ -73,29 +72,6 @@ class Body extends StatelessWidget {
               },
             )
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class ForgotPassword extends StatelessWidget {
-  final VoidCallback press;
-  const ForgotPassword({
-    Key? key,
-    required this.press,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: press,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 170, top: 8, bottom: 8),
-        child: Text(
-          'Forgot your password?',
-          style: TextStyle(color: kprimary, fontWeight: FontWeight.bold),
-          textAlign: TextAlign.right,
         ),
       ),
     );

@@ -5,11 +5,8 @@ import 'package:grad_app/Screens/Welcome/welcome_screen.dart';
 import 'package:grad_app/constants.dart';
 
 class Splash extends StatefulWidget {
-  final String title;
-
   const Splash({
     Key? key,
-    required this.title,
   }) : super(key: key);
 
   @override
@@ -37,8 +34,9 @@ class _SplashState extends State<Splash> {
         children: <Widget>[
           //to insert the app logo or company logo
           Image.asset(
-            'assets/images/logo.png',
-            height: 130,
+            'assets/images/knust_logo.png',
+            height: 170,
+            width: 170,
           ),
           SizedBox(height: 30),
           //to check if the user is using an iOS
