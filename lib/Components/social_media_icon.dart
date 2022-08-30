@@ -4,7 +4,7 @@ import 'package:grad_app/constants.dart';
 
 class SocialMediaIcon extends StatelessWidget {
   final String iconSrc;
-  final Function press;
+  final VoidCallback press;
   const SocialMediaIcon({
     Key? key,
     required this.iconSrc,
@@ -14,7 +14,7 @@ class SocialMediaIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: press,
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 10),
         padding: EdgeInsets.all(20),

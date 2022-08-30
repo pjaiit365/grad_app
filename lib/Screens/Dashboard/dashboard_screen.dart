@@ -49,7 +49,8 @@ class Body extends StatelessWidget {
                             ),
                           );
                         },
-                        dashboardSvgSrc: 'assets/icons/twitter.svg',
+                        dashboardSvgSrc:
+                            'assets/icons/graduation_cap_horizontal.svg',
                         dashboardMainText: 'My Graduation',
                         dashboardSubText: 'View Graduation'),
                     DashboardWidget(
@@ -72,8 +73,8 @@ class Body extends StatelessWidget {
                     DashboardWidget(
                         dashboardWidgetPress: () {},
                         dashboardSvgSrc: 'assets/icons/twitter.svg',
-                        dashboardMainText: 'Twitter',
-                        dashboardSubText: 'Have fun with twitter'),
+                        dashboardMainText: 'Payment',
+                        dashboardSubText: 'Pay and checkout payment history'),
                   ],
                 ),
                 SizedBox(height: 15),

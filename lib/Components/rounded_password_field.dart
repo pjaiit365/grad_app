@@ -24,6 +24,7 @@ class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
         obscureText: _passwordVisible,
         decoration: InputDecoration(
           hintText: 'Password',
+          hintStyle: TextStyle(color: Colors.grey),
           icon: Icon(
             Icons.lock,
             color: kprimary,

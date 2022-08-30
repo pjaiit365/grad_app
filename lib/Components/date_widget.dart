@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:grad_app/constants.dart';
 
 class DateWidget extends StatefulWidget {
-  const DateWidget({Key? key}) : super(key: key);
+  final index;
+  const DateWidget({Key? key, this.index}) : super(key: key);
 
   @override
   State<DateWidget> createState() => _DateWidgetState();
 }
 
 class _DateWidgetState extends State<DateWidget> {
-  bool _selectDate = true;
+  bool _selectDate = false;
+  var _days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,9 @@ class _DateWidgetState extends State<DateWidget> {
         });
       },
       child: Container(
-        padding: EdgeInsets.all(8),
+        padding: EdgeInsets.only(top: 4),
+        height: 68,
+        width: 49,
         decoration: _selectDate
             ? BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
@@ -30,7 +34,7 @@ class _DateWidgetState extends State<DateWidget> {
         child: Column(
           children: <Widget>[
             Text(
-              'Mon',
+              _days[widget.index],
               style: TextStyle(
                 color: _selectDate ? Colors.white : Colors.black,
                 fontSize: 17,
@@ -38,7 +42,7 @@ class _DateWidgetState extends State<DateWidget> {
               ),
             ),
             Text(
-              '10',
+              '${10 + widget.index}',
               style: TextStyle(
                   color: _selectDate ? Colors.white : Colors.black,
                   fontWeight: _selectDate ? FontWeight.bold : FontWeight.normal,

@@ -15,30 +15,38 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     //for division between schedules and dates
-    return SafeArea(
-      child: Column(
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 30),
-            decoration: BoxDecoration(
-                color: Color(0xfffcfcfc),
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(10),
-                    bottomRight: Radius.circular(10))),
-            width: double.infinity,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                SchdeulerTopRow(scheduleLightColor: scheduleLightColor),
-                SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(7, (index) => DateWidget()),
-                )
-              ],
-            ),
+    return Column(
+      children: <Widget>[
+        Container(
+          height: 30,
+          color: Colors.white,
+        ),
+        Container(
+          padding: EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 30),
+          decoration: BoxDecoration(
+              color: Color(0xfffcfcfc),
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10))),
+          width: double.infinity,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              SchdeulerTopRow(scheduleLightColor: scheduleLightColor),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: List.generate(
+                  growable: true,
+                  7,
+                  (index) => DateWidget(index: index),
+                ),
+              )
+            ],
           ),
-          Container(
+        ),
+        SingleChildScrollView(
+          child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -53,7 +61,6 @@ class _BodyState extends State<Body> {
                   schedulerContainerTextDeep: schedulerGreenMainText,
                   schedulerContainerTextLight: schedulerGreenSubText,
                 ),
-                SizedBox(height: 20),
                 SchedulerItem(
                   timeStart: '11:00',
                   timeEnd: '12:00',
@@ -64,7 +71,6 @@ class _BodyState extends State<Body> {
                   schedulerContainerTextDeep: schedulerBlueMainText,
                   schedulerContainerTextLight: schedulerBlueSubText,
                 ),
-                SizedBox(height: 20),
                 SchedulerItem(
                   timeStart: '13:00',
                   timeEnd: '14:00',
@@ -77,9 +83,9 @@ class _BodyState extends State<Body> {
                 ),
               ],
             ),
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 }

@@ -26,7 +26,7 @@ class Body extends StatelessWidget {
           children: <Widget>[
             Text(
               'SIGNUP',
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               // textAlign: TextAlign.center,
             ),
             SizedBox(height: size.height * 0.02),
@@ -57,7 +57,7 @@ class Body extends StatelessWidget {
                     ),
                   );
                 },
-                text: 'SIGNUP'),
+                text: 'Sign Up'),
             SizedBox(height: size.height * 0.005),
             AlreadyHaveAnAccount(
                 press: () {
@@ -78,7 +78,9 @@ class Body extends StatelessWidget {
               children: <Widget>[
                 SocialMediaIcon(
                   iconSrc: 'assets/icons/facebook.svg',
-                  press: () {},
+                  press: () {
+                    Navigator.pop(context);
+                  },
                 ),
                 SocialMediaIcon(
                   iconSrc: 'assets/icons/twitter.svg',

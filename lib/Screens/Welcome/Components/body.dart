@@ -22,14 +22,14 @@ class Body extends StatelessWidget {
               "WELCOME TO G to G!",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 16,
+                fontSize: 22,
               ),
             ),
             const Text(
               "Graduate with ease...",
               style: TextStyle(
                 fontWeight: FontWeight.normal,
-                fontSize: 14,
+                fontSize: 17,
                 color: kLightColor,
               ),
             ),

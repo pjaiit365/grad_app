@@ -24,7 +24,7 @@ class DashboardWidget extends StatelessWidget {
         width: 165,
         height: 165,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20), color: kBackgroundLight),
+            borderRadius: BorderRadius.circular(20), color: Color(0xffF7F5FF)),
         child: Padding(
           padding: const EdgeInsets.only(top: 20.0),
           child: Column(
@@ -32,8 +32,7 @@ class DashboardWidget extends StatelessWidget {
             children: <Widget>[
               SvgPicture.asset(
                 dashboardSvgSrc,
-                height: 50,
-                color: Colors.black54,
+                height: 55,
               ),
               SizedBox(height: 10),
               Text(
@@ -43,13 +42,16 @@ class DashboardWidget extends StatelessWidget {
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
               ),
-              Text(
-                softWrap: true,
-                dashboardSubText,
-                style: TextStyle(
-                    color: kLightColor.withOpacity(0.8),
-                    fontSize: 15,
-                    fontWeight: FontWeight.normal),
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0, right: 10),
+                child: Text(
+                  softWrap: true,
+                  dashboardSubText,
+                  style: TextStyle(
+                      color: kLightColor.withOpacity(0.8),
+                      fontSize: 15,
+                      fontWeight: FontWeight.normal),
+                ),
               ),
             ],
           ),

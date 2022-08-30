@@ -26,9 +26,7 @@ class Body extends StatelessWidget {
           children: <Widget>[
             const Text(
               'LOGIN',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
             SizedBox(height: size.height * 0.03),
             SvgPicture.asset(
@@ -52,7 +50,7 @@ class Body extends StatelessWidget {
               );
             }),
             RoundedButton(
-              text: 'LOGIN',
+              text: 'Log In',
               press: () {
                 Navigator.push(
                   context,

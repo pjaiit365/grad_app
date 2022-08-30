@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:grad_app/Components/custom_bottom_nav.dart';
-import 'package:grad_app/Components/default_app_bar.dart';
 import 'package:grad_app/constants.dart';
 
 import 'package:grad_app/enum.dart';
@@ -13,11 +12,11 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.red,
       appBar: AppBar(
         title: Text(
           'Profile',
-          style: TextStyle(color: kLightColor, fontSize: 24),
+          style: TextStyle(color: kprimary, fontSize: 24),
+          textAlign: TextAlign.left,
         ),
         backgroundColor: Colors.white,
         centerTitle: true,
