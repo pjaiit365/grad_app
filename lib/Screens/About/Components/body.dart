@@ -13,6 +13,7 @@ class Body extends StatelessWidget {
 
     return Container(
       margin: EdgeInsets.symmetric(vertical: 0),
+      height: size.height * 0.69,
       width: size.width * 0.85,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -70,17 +71,6 @@ class Body extends StatelessWidget {
               imgSrc: 'assets/icons/Bell.svg',
               press: () {},
               aboutMenuText: 'Rate the app',
-            ),
-            Expanded(child: Spacer()),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text('Made with ', style: TextStyle(color: Color(0xff9ea0a7))),
-                SvgPicture.asset('assets/icons/Bell.svg',
-                    color: Color(0xfff9858e)),
-                Text('in Estonia', style: TextStyle(color: Color(0xff9ea0a7))),
-              ],
             ),
           ],
         ),

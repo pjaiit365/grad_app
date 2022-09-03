@@ -11,7 +11,7 @@ class AboutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: DefaultBackButton(backButtonColor: Colors.black),
+        leading: DefaultBackButton(backButtonColor: Colors.black54),
         elevation: 0.0,
         backgroundColor: Colors.white,
         title: Text('About', style: TextStyle(color: kLightColor)),

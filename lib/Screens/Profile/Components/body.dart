@@ -7,6 +7,7 @@ import 'package:grad_app/Components/rounded_button.dart';
 import 'package:grad_app/Screens/About/about_screen.dart';
 import 'package:grad_app/Screens/Dashboard/dashboard_screen.dart';
 import 'package:grad_app/Screens/Login/login_screen.dart';
+import 'package:grad_app/Screens/Profile/SubScreens/EditProfile/edit_profile.dart';
 import 'package:grad_app/Screens/Profile/profile_screen.dart';
 import 'package:grad_app/constants.dart';
 import 'package:popup_card/popup_card.dart';
@@ -28,7 +29,7 @@ class Body extends StatelessWidget {
                 context,
                 PageRouteBuilder(pageBuilder: (BuildContext context,
                     Animation animation, Animation secondaryAnimation) {
-                  return DashboardScreen();
+                  return EditProfile();
                 }, transitionsBuilder: (BuildContext context,
                     Animation<double> animation,
                     Animation<double> secondaryAnimation,

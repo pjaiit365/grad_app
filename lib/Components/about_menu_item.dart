@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:grad_app/constants.dart';
 
 class AboutMenuItem extends StatelessWidget {
   final String imgSrc;
@@ -24,7 +25,7 @@ class AboutMenuItem extends StatelessWidget {
           children: [
             SvgPicture.asset(
               imgSrc,
-              color: Color(0xff70737d),
+              color: kprimary,
               width: 20,
             ),
             SizedBox(width: 25),
