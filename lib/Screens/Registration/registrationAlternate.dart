@@ -48,11 +48,22 @@ class _BodyState extends State<Body> {
   }
 
   Future signUp() async {
-    if (PasswordConfirmed()) {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
-      );
+    try {
+      if (PasswordConfirmed()) {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim(),
+        );
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                content: Text('Succesfully Signed Up!'),
+              );
+            });
+      }
+    } on FirebaseAuthException catch (e) {
+      print(e.toString());
     }
   }
 
@@ -113,12 +124,7 @@ class _BodyState extends State<Body> {
               ),
               SizedBox(height: 20),
               TextButton(
-                onPressed: () async {
-                  await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                    email: _emailController.text.trim(),
-                    password: _passwordController.text.trim(),
-                  );
-                },
+                onPressed: signUp,
                 child: Text(
                   'Sign Up',
                   style: TextStyle(color: Colors.white, fontSize: 17),

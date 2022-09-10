@@ -16,6 +16,7 @@ class ResetPasswordButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return TextButton(
       onPressed: press,
       child: Text(
@@ -25,7 +26,8 @@ class ResetPasswordButton extends StatelessWidget {
       style: TextButton.styleFrom(
         backgroundColor: resetButtonColor,
         elevation: 1.0,
-        padding: EdgeInsets.symmetric(horizontal: 110, vertical: 17),
+        padding:
+            EdgeInsets.symmetric(horizontal: size.width * 0.27, vertical: 17),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12), side: BorderSide.none),
       ),

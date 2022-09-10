@@ -45,9 +45,27 @@ class _BodyState extends State<Body> {
   final _passwordController = TextEditingController();
 
   Future signIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim());
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim());
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              content: Text('Sign In successful!'),
+            );
+          });
+    } on FirebaseAuthException catch (e) {
+      print(e.toString());
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              content: Text(e.message.toString()),
+            );
+          });
+    }
   }
 
   @override
@@ -83,6 +101,7 @@ class _BodyState extends State<Body> {
               ),
               SizedBox(height: 10),
               RoundedInputTextFieldcontroller(
+                  keyboardType: TextInputType.emailAddress,
                   hintText: 'Email',
                   onChanged: (value) {},
                   textController: _emailController),
@@ -99,38 +118,28 @@ class _BodyState extends State<Body> {
               RoundedPasswordFieldcontroller(
                   onChanged: (String value) {},
                   textController: _passwordController),
-              ForgotPassword(press: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ForgotYourPassword(),
-                  ),
-                );
-              }),
+              ForgotPassword(
+                press: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ForgotYourPassword(),
+                    ),
+                  );
+                },
+              ),
               SizedBox(height: 20),
               TextButton(
-                onPressed: () async {
-                  await FirebaseAuth.instance.signInWithEmailAndPassword(
-                      email: _emailController.text.trim(),
-                      password: _passwordController.text.trim());
-                },
-                // {
-                //   Navigator.pushAndRemoveUntil(
-                //       context,
-                //       MaterialPageRoute(
-                //         builder: (context) => DashboardScreen(),
-                //       ),
-                //       (route) => false);
-                // },
+                onPressed: signIn,
                 child: Text(
-                  'Log In',
+                  'Sign In',
                   style: TextStyle(color: Colors.white, fontSize: 17),
                 ),
                 style: TextButton.styleFrom(
                   backgroundColor: kprimary,
                   elevation: 1.0,
                   padding: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.369, vertical: 17),
+                      horizontal: size.width * 0.365, vertical: 17),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                       side: BorderSide.none),

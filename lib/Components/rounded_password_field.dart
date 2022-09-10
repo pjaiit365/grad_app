@@ -72,7 +72,7 @@ class RoundedPasswordFieldcontroller extends StatefulWidget {
 
 class _RoundedPasswordFieldcontrollerState
     extends State<RoundedPasswordFieldcontroller> {
-  bool _passwordVisible = false;
+  bool _passwordVisible = true;
 
   @override
   Widget build(BuildContext context) {
