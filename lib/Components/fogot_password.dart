@@ -13,7 +13,7 @@ class ForgotPassword extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: Padding(
-        padding: const EdgeInsets.only(left: 170, top: 8, bottom: 8),
+        padding: const EdgeInsets.only(left: 207, top: 8, bottom: 0),
         child: Text(
           'Forgot your password?',
           style: TextStyle(color: kprimary, fontWeight: FontWeight.bold),

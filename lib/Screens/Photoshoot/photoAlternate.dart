@@ -24,7 +24,7 @@ class _PhotoAlternateState extends State<PhotoAlternate> {
         actions: <Widget>[
           IconButton(
             icon: const Icon(
-              Icons.add,
+              Icons.delete,
               color: Colors.white,
             ),
             onPressed: () {},
@@ -55,23 +55,6 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  List<String> studioLogo = [
-    'assets/images/knust_logo.png',
-    'assets/images/knust_logo.png',
-  ];
-  List<String> studioName = [
-    'studioName',
-    'studioName',
-  ];
-  List<String> studioBackgroundImage = [
-    'assets/images/profile_pic.jpg',
-    'assets/images/profile_pic.jpg',
-  ];
-  List<String> studioMantra = [
-    'studioMantra',
-    'studioMantra',
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -81,10 +64,10 @@ class _BodyState extends State<Body> {
               itemCount: studioLogo.length,
               itemBuilder: (context, index) {
                 return PhotoStudioItem(
-                  studioLogo: studioLogo[index],
-                  studioName: studioName[index],
-                  studioMantra: studioMantra[index],
-                  studioBackgroundImage: studioBackgroundImage[index],
+                  studioLogo: '${studioLogo[index]}',
+                  studioName: '${studioName[index]}',
+                  studioMantra: '${studioMantra[index]}',
+                  studioBackgroundImage: '${studioBackgroundImage[index]}',
                   press: () {
                     Navigator.push(
                         context,
@@ -99,7 +82,8 @@ class _BodyState extends State<Body> {
               },
             )
           : const Center(
-              child: Text('There are no accredited photographer on this list')),
+              child:
+                  Text('There are no accredited photographers on this list')),
     );
   }
 }

@@ -62,7 +62,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                       ),
                     ),
                     SizedBox(height: 20),
-                    AddNewEventWidget(
+                    AddNewEventsWidget(
                         onChanged: (value) {},
                         newEventWidth: 0.9,
                         newEventHeight: 65,
@@ -82,7 +82,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                             newEventHintText: 'End'),
                       ],
                     ),
-                    AddNewEventWidget(
+                    AddNewEventsWidget(
                       onChanged: (value) {},
                       newEventWidth: 0.9,
                       newEventHeight: 200,

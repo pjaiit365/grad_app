@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grad_app/Components/rounded_button.dart';
+import 'package:grad_app/Screens/Registration/registrationAlternate.dart';
 import 'package:grad_app/Screens/Welcome/Components/background.dart';
 import 'package:grad_app/constants.dart';
 
+import '../../Login/loginAlternate.dart';
 import '../../Login/login_screen.dart';
 import '../../Registration/registration_screen.dart';
 
@@ -46,7 +48,7 @@ class Body extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => LoginScreen(),
+                      builder: (context) => LoginAlternate(),
                     ));
               },
             ),
@@ -60,7 +62,7 @@ class Body extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return RegistrationScreen();
+                      return RegistrationAlternate();
                     },
                   ),
                 );

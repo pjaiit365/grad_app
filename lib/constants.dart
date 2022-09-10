@@ -30,3 +30,19 @@ const kDarkTextStyle = TextStyle(
   fontSize: 20.0,
   color: kDarkColor,
 );
+List<String> studioLogo = [
+  'assets/images/knust_logo.png',
+  'assets/images/knust_logo.png',
+];
+List<String> studioName = [
+  'studioName',
+  'studioName',
+];
+List<String> studioBackgroundImage = [
+  'assets/images/profile_pic.jpg',
+  'assets/images/profile_pic.jpg',
+];
+List<String> studioMantra = [
+  'studioMantra',
+  'studioMantra',
+];

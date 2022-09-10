@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -128,12 +129,7 @@ class LogOutPopUp extends StatelessWidget {
               SizedBox(height: 25),
               LogOutButton(
                 press: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => LoginScreen(),
-                    ),
-                  );
+                  FirebaseAuth.instance.signOut();
                 },
                 buttonWidth: 115,
                 buttonColor: Color(0xffFF5266),

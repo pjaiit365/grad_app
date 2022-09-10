@@ -18,7 +18,7 @@ class ResetTextField extends StatelessWidget {
       width: size.width * 0.86,
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       decoration: BoxDecoration(
-          color: kprimaryLightColor, borderRadius: BorderRadius.circular(12)),
+          color: kprimaryLightColor, borderRadius: BorderRadius.circular(8)),
       child: TextField(
         decoration: InputDecoration(
           hintText: hintText,
