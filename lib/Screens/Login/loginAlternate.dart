@@ -60,6 +60,7 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: SingleChildScrollView(
         child: Padding(
@@ -107,35 +108,32 @@ class _BodyState extends State<Body> {
                 );
               }),
               SizedBox(height: 20),
-              GestureDetector(
-                onTap: signIn,
-                child: TextButton(
-                  onPressed: () {
-                    // FirebaseAuth.instance.signInWithEmailAndPassword(
-                    //     email: _emailController.text.trim(),
-                    //     password: _passwordController.text.trim());
-                  },
-                  // {
-                  //   Navigator.pushAndRemoveUntil(
-                  //       context,
-                  //       MaterialPageRoute(
-                  //         builder: (context) => DashboardScreen(),
-                  //       ),
-                  //       (route) => false);
-                  // },
-                  child: Text(
-                    'Log In',
-                    style: TextStyle(color: Colors.white, fontSize: 17),
-                  ),
-                  style: TextButton.styleFrom(
-                    backgroundColor: kprimary,
-                    elevation: 1.0,
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 152, vertical: 17),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        side: BorderSide.none),
-                  ),
+              TextButton(
+                onPressed: () async {
+                  await FirebaseAuth.instance.signInWithEmailAndPassword(
+                      email: _emailController.text.trim(),
+                      password: _passwordController.text.trim());
+                },
+                // {
+                //   Navigator.pushAndRemoveUntil(
+                //       context,
+                //       MaterialPageRoute(
+                //         builder: (context) => DashboardScreen(),
+                //       ),
+                //       (route) => false);
+                // },
+                child: Text(
+                  'Log In',
+                  style: TextStyle(color: Colors.white, fontSize: 17),
+                ),
+                style: TextButton.styleFrom(
+                  backgroundColor: kprimary,
+                  elevation: 1.0,
+                  padding: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.369, vertical: 17),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      side: BorderSide.none),
                 ),
               ),
               SizedBox(height: 30),

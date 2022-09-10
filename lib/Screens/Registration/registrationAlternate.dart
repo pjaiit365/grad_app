@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:grad_app/Screens/Login/loginAlternate.dart';
 
@@ -32,6 +33,36 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  final _emailController = TextEditingController();
+  final _indexController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _indexController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    super.dispose();
+  }
+
+  Future signUp() async {
+    if (PasswordConfirmed()) {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+    }
+  }
+
+  bool PasswordConfirmed() {
+    if (_passwordController == _confirmPasswordController)
+      return true;
+    else
+      return false;
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -56,9 +87,14 @@ class _BodyState extends State<Body> {
                 style: TextStyle(color: Colors.black, fontSize: 24),
               ),
               SizedBox(height: 10),
-              RoundedInputTextField(hintText: 'Email', onChanged: (value) {}),
+              RoundedInputTextFieldcontroller(
+                hintText: 'Email',
+                onChanged: (value) {},
+                textController: _emailController,
+              ),
               SizedBox(height: 4),
-              RoundedInputTextField(
+              RoundedInputTextFieldcontroller(
+                textController: _indexController,
                 maxlength: 7,
                 keyboardType: TextInputType.number,
                 hintText: 'Index Number',
@@ -66,19 +102,21 @@ class _BodyState extends State<Body> {
                 icon: Icons.numbers_rounded,
               ),
               SizedBox(height: 4),
-              RoundedPasswordField(onChanged: (String value) {}),
-              RoundedPasswordField(
+              RoundedPasswordFieldcontroller(
+                onChanged: (String value) {},
+                textController: _passwordController,
+              ),
+              RoundedPasswordFieldcontroller(
+                textController: _confirmPasswordController,
                 onChanged: (String value) {},
                 hintText: 'Confirm Password',
               ),
               SizedBox(height: 20),
               TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => LoginAlternate(),
-                    ),
+                onPressed: () async {
+                  await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                    email: _emailController.text.trim(),
+                    password: _passwordController.text.trim(),
                   );
                 },
                 child: Text(
@@ -88,7 +126,8 @@ class _BodyState extends State<Body> {
                 style: TextButton.styleFrom(
                   backgroundColor: kprimary,
                   elevation: 1.0,
-                  padding: EdgeInsets.symmetric(horizontal: 148, vertical: 17),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.359, vertical: 17),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                       side: BorderSide.none),
