@@ -13,11 +13,15 @@ import 'package:grad_app/Screens/Profile/profile_screen.dart';
 import 'package:grad_app/constants.dart';
 import 'package:popup_card/popup_card.dart';
 
+import '../../Login/loginAlternate.dart';
+
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Future signOut() async {}
+
     return Column(
       children: <Widget>[
         ProfilePic(),
@@ -26,24 +30,24 @@ class Body extends StatelessWidget {
           svgSrc: 'assets/icons/User Icon.svg',
           menuText: 'My Account',
           press: () {
-            Navigator.pushAndRemoveUntil(
-                context,
-                PageRouteBuilder(pageBuilder: (BuildContext context,
-                    Animation animation, Animation secondaryAnimation) {
-                  return EditProfile();
-                }, transitionsBuilder: (BuildContext context,
-                    Animation<double> animation,
-                    Animation<double> secondaryAnimation,
-                    Widget child) {
-                  return new SlideTransition(
-                    position: new Tween<Offset>(
-                      begin: const Offset(1.0, 0.0),
-                      end: Offset.zero,
-                    ).animate(animation),
-                    child: child,
-                  );
-                }),
-                (Route route) => false);
+            Navigator.push(
+              context,
+              PageRouteBuilder(pageBuilder: (BuildContext context,
+                  Animation animation, Animation secondaryAnimation) {
+                return EditProfile();
+              }, transitionsBuilder: (BuildContext context,
+                  Animation<double> animation,
+                  Animation<double> secondaryAnimation,
+                  Widget child) {
+                return new SlideTransition(
+                  position: new Tween<Offset>(
+                    begin: const Offset(1.0, 0.0),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                );
+              }),
+            );
           },
         ),
         ProfileMenu(
@@ -128,8 +132,42 @@ class LogOutPopUp extends StatelessWidget {
               ),
               SizedBox(height: 25),
               LogOutButton(
-                press: () {
+                press: () async {
                   FirebaseAuth.instance.signOut();
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          content: Text('Sign Out successful!'),
+                        );
+                      });
+                  FirebaseAuth.instance.signOut();
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return SnackBar(
+                          content: Text('Sign Out successful!'),
+                          duration: Duration(seconds: 3),
+                        );
+                      });
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      PageRouteBuilder(pageBuilder: (BuildContext context,
+                          Animation animation, Animation secondaryAnimation) {
+                        return LoginAlternate();
+                      }, transitionsBuilder: (BuildContext context,
+                          Animation<double> animation,
+                          Animation<double> secondaryAnimation,
+                          Widget child) {
+                        return new SlideTransition(
+                          position: new Tween<Offset>(
+                            begin: const Offset(1.0, 0.0),
+                            end: Offset.zero,
+                          ).animate(animation),
+                          child: child,
+                        );
+                      }),
+                      (Route route) => false);
                 },
                 buttonWidth: 115,
                 buttonColor: Color(0xffFF5266),

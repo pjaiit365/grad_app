@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/credit_card_form.dart';
 import 'package:flutter_credit_card/credit_card_model.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
+import 'package:grad_app/Components/default_back_button.dart';
+import 'package:grad_app/Screens/Payment/success_screen.dart';
 import 'package:grad_app/constants.dart';
 
 class CrediCard extends StatefulWidget {
@@ -22,15 +24,15 @@ class _CrediCardState extends State<CrediCard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal[50],
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios, color: kLightColor),
+        leading: DefaultBackButton(backButtonColor: Colors.black),
         elevation: 0.1,
-        backgroundColor: Colors.teal[50],
+        backgroundColor: Colors.white,
         centerTitle: false,
         title: Text(
-          'New card',
-          style: TextStyle(color: kLightColor),
+          'Card Details',
+          style: TextStyle(color: kprimary),
         ),
       ),
       resizeToAvoidBottomInset: true,
@@ -90,6 +92,11 @@ class _CrediCardState extends State<CrediCard> {
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
                           print('Valid Card Payment !');
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SuccessScreen(),
+                              ));
                         } else {
                           print('Invalid Card Payment !');
                         }

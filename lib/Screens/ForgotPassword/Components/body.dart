@@ -30,7 +30,10 @@ class _BodyState extends State<Body> {
       showDialog(
         context: context,
         builder: (context) {
-          return const ResetCheckMail();
+          // return const ResetCheckMail();
+          return AlertDialog(
+            content: Text('Sign In successful!'),
+          );
         },
       );
     } on FirebaseAuthException catch (e) {

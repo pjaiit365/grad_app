@@ -18,6 +18,7 @@ class DashboardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: dashboardWidgetPress,
       child: Container(
@@ -45,6 +46,7 @@ class DashboardWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 20.0, right: 10),
                 child: Text(
+                  textAlign: TextAlign.center,
                   softWrap: true,
                   dashboardSubText,
                   style: TextStyle(

@@ -53,6 +53,7 @@ class _AddNewEventWidgetState extends State<AddNewEventWidget> {
 }
 
 class AddNewEventWidgetTimer extends StatelessWidget {
+  final TextEditingController textController;
   final ValueChanged onChanged;
   final double newEventWidth;
   final double newEventHeight;
@@ -63,6 +64,7 @@ class AddNewEventWidgetTimer extends StatelessWidget {
     required this.newEventHeight,
     required this.newEventHintText,
     required this.onChanged,
+    required this.textController,
   }) : super(key: key);
 
   @override
@@ -80,6 +82,8 @@ class AddNewEventWidgetTimer extends StatelessWidget {
         child: Material(
           color: Colors.transparent,
           child: TextField(
+            keyboardType: TextInputType.datetime,
+            controller: textController,
             decoration: InputDecoration(
               hintText: newEventHintText,
               hintStyle: TextStyle(color: Colors.grey),
@@ -98,6 +102,7 @@ class AddNewEventWidgetTimer extends StatelessWidget {
 }
 
 class AddNewEventsWidget extends StatefulWidget {
+  final TextEditingController textController;
   final ValueChanged onChanged;
   final double newEventWidth;
   final double newEventHeight;
@@ -108,6 +113,7 @@ class AddNewEventsWidget extends StatefulWidget {
     required this.newEventHeight,
     required this.newEventHintText,
     required this.onChanged,
+    required this.textController,
   }) : super(key: key);
 
   @override
@@ -130,6 +136,7 @@ class _AddNewEventsWidgetState extends State<AddNewEventsWidget> {
         child: Material(
           color: Colors.transparent,
           child: TextField(
+            controller: widget.textController,
             decoration: InputDecoration(
               hintText: widget.newEventHintText,
               hintStyle: TextStyle(color: Colors.grey),

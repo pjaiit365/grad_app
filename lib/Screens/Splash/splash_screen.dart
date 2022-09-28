@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:grad_app/Screens/Welcome/welcome_screen.dart';
 import 'package:grad_app/constants.dart';
+import 'package:grad_app/wrapper.dart';
 
 class Splash extends StatefulWidget {
   const Splash({
@@ -19,8 +20,8 @@ class _SplashState extends State<Splash> {
     // TODO: implement initState
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => const WelcomeScreen()));
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const Wrapper()));
     });
   }
 

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:grad_app/Components/dashboard_widget.dart';
+import 'package:grad_app/Screens/MyGraduation/my_grad.dart';
 import 'package:grad_app/Screens/Photoshoot/photoAlternate.dart';
 import 'package:grad_app/Screens/Photoshoot/photoshoot_screen.dart';
 import 'package:grad_app/Screens/Profile/profile_screen.dart';
 
 import '../../../Components/dashboard_header_widget.dart';
+import '../../Payment/payment_screen.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -22,7 +24,7 @@ class Body extends StatelessWidget {
                 left: 30.0, right: 30.0, top: 10, bottom: 0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,7 +35,7 @@ class Body extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return ProfileScreen();
+                                return MyGradScreen();
                               },
                             ),
                           );
@@ -50,7 +52,7 @@ class Body extends StatelessWidget {
                                 builder: (context) => PhotoAlternate(),
                               ));
                         },
-                        dashboardSvgSrc: 'assets/icons/twitter.svg',
+                        dashboardSvgSrc: 'assets/icons/photoshoot.svg',
                         dashboardMainText: 'Photoshoot',
                         dashboardSubText: 'Buy photoshoot tickets'),
                   ],
@@ -62,12 +64,18 @@ class Body extends StatelessWidget {
                   children: [
                     DashboardWidget(
                         dashboardWidgetPress: () {},
-                        dashboardSvgSrc: 'assets/icons/twitter.svg',
+                        dashboardSvgSrc: 'assets/icons/results.svg',
                         dashboardMainText: 'Results',
                         dashboardSubText: 'Check graduating class'),
                     DashboardWidget(
-                        dashboardWidgetPress: () {},
-                        dashboardSvgSrc: 'assets/icons/twitter.svg',
+                        dashboardWidgetPress: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PaymentScreen(),
+                              ));
+                        },
+                        dashboardSvgSrc: 'assets/icons/payment.svg',
                         dashboardMainText: 'Payment',
                         dashboardSubText: 'Pay and checkout payment history'),
                   ],
@@ -79,14 +87,14 @@ class Body extends StatelessWidget {
                   children: [
                     DashboardWidget(
                         dashboardWidgetPress: () {},
-                        dashboardSvgSrc: 'assets/icons/twitter.svg',
-                        dashboardMainText: 'Twitter',
-                        dashboardSubText: 'Have fun with twitter'),
+                        dashboardSvgSrc: 'assets/icons/messages.svg',
+                        dashboardMainText: 'Messages',
+                        dashboardSubText: 'Text with fellow graduands'),
                     DashboardWidget(
                         dashboardWidgetPress: () {},
-                        dashboardSvgSrc: 'assets/icons/twitter.svg',
-                        dashboardMainText: 'Twitter',
-                        dashboardSubText: 'Have fun with twitter'),
+                        dashboardSvgSrc: 'assets/icons/money.svg',
+                        dashboardMainText: 'Fees',
+                        dashboardSubText: 'Check refund or accrued fees'),
                   ],
                 ),
                 SizedBox(height: 8),

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:grad_app/constants.dart';
 
@@ -32,6 +33,47 @@ class _BodyState extends State<Body> {
   final bioTextController = TextEditingController();
   final pictureTextController = TextEditingController();
   final logoTextController = TextEditingController();
+
+  @override
+  void dispose() {
+    nameTextController.dispose();
+    sloganTextController.dispose();
+    bioTextController.dispose();
+    pictureTextController.dispose();
+    logoTextController.dispose();
+    super.dispose();
+  }
+
+  Future addStudio() async {
+    addStudioDetails(
+      nameTextController.text.trim(),
+      sloganTextController.text.trim(),
+      bioTextController.text.trim(),
+      pictureTextController.text.trim(),
+    );
+    Navigator.pop(context);
+    setState(
+      () {
+        studioLogo.add(pictureTextController.text);
+        studioName.add(nameTextController.text);
+        studioBackgroundImage.add(logoTextController.text);
+        studioMantra.add(sloganTextController.text);
+        Navigator.pop(context);
+      },
+    );
+  }
+
+  Future addStudioDetails(String studioName, String studioSlogan,
+      String studioBio, String studioBackImage) async {
+    await FirebaseFirestore.instance.collection('photo studio').add(
+      {
+        'Studio Name:': studioName,
+        'Studio Slogan:': studioSlogan,
+        'Studio Bio:': studioBio,
+        'Background Image:': studioBackImage,
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,15 +134,7 @@ class _BodyState extends State<Body> {
                   newEventHintText: 'Upload studio logo'),
               SizedBox(height: 20),
               TextButton(
-                onPressed: () {
-                  setState(() {
-                    studioLogo.add(pictureTextController.text);
-                    studioName.add(nameTextController.text);
-                    studioBackgroundImage.add(logoTextController.text);
-                    studioMantra.add(nameTextController.text);
-                    Navigator.pop(context);
-                  });
-                },
+                onPressed: addStudio,
                 child: Text(
                   'Add studio',
                   style: TextStyle(

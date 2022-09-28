@@ -70,10 +70,11 @@ class _BodyState extends State<Body> {
                   studioBackgroundImage: '${studioBackgroundImage[index]}',
                   press: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => PhotoStudioDetails(),
-                        ));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PhotoStudioDetails(),
+                      ),
+                    );
                   },
                 );
               },

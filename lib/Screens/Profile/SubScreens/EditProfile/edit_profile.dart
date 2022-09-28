@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:grad_app/Components/build_divider.dart';
 import 'package:grad_app/Components/default_back_button.dart';
@@ -28,7 +29,7 @@ class _EditProfileState extends State<EditProfile> {
         backgroundColor: kprimary,
       ),
       body: Body(),
-      backgroundColor: Colors.grey[350],
+      backgroundColor: CupertinoColors.systemGrey5,
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingWidget(
         floatingIcon: Icons.edit,

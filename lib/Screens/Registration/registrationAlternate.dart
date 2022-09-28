@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:grad_app/Screens/Login/loginAlternate.dart';
@@ -49,26 +50,63 @@ class _BodyState extends State<Body> {
 
   Future signUp() async {
     try {
-      if (PasswordConfirmed()) {
+      if (PasswordConfirmed() && _indexController != null) {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: _emailController.text.trim(),
           password: _passwordController.text.trim(),
         );
+        addUserDetails(
+          _emailController.text.trim(),
+          int.parse(
+            _indexController.text.trim(),
+          ),
+        );
+        showDialog(
+            context: context,
+            builder: (context) {
+              return SnackBar(
+                content: Text('Succesfully Signed Up!'),
+              );
+            });
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => LoginAlternate(),
+          ),
+        );
+      } else {
         showDialog(
             context: context,
             builder: (context) {
               return AlertDialog(
-                content: Text('Succesfully Signed Up!'),
+                content: Text('Make sure both password fields are the same.'),
               );
             });
       }
     } on FirebaseAuthException catch (e) {
       print(e.toString());
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              content: Text(e.message.toString()),
+            );
+          });
     }
   }
 
+  Future addUserDetails(String email, int indexNumber) async {
+    await FirebaseFirestore.instance.collection('user').add(
+      {
+        'Email': email,
+        'Index Number': indexNumber,
+      },
+    );
+  }
+
   bool PasswordConfirmed() {
-    if (_passwordController == _confirmPasswordController)
+    if (_passwordController.text.trim() ==
+        _confirmPasswordController.text.trim())
       return true;
     else
       return false;

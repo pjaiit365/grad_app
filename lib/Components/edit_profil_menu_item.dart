@@ -26,7 +26,7 @@ class EditProfileMenuItem extends StatelessWidget {
               ),
               Text(
                 subText,
-                style: TextStyle(color: kprimary, fontSize: 17),
+                style: TextStyle(color: kprimary, fontSize: 18),
               ),
             ],
           ),

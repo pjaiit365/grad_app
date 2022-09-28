@@ -26,7 +26,11 @@ class Body extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           EmptySection(imgSrc: true, subText: true, outcomeText: true),
-          RoundedButton(text: 'OK', press: () {}),
+          RoundedButton(
+              text: 'OK',
+              press: () {
+                Navigator.pop(context);
+              }),
         ],
       ),
     );
