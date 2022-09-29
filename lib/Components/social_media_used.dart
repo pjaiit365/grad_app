@@ -14,10 +14,7 @@ class SocialMedia extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15),
       child: ElevatedButton(
         onPressed: () {},
-        child: SvgPicture.asset(
-          iconSrc,
-          width: 25,
-        ),
+        child: SvgPicture.asset(iconSrc, width: 25, height: 25),
         style: TextButton.styleFrom(
           backgroundColor: Colors.white,
           shadowColor: Colors.black,

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:grad_app/Components/default_back_button.dart';
 import 'package:grad_app/Components/floating_widget.dart';
@@ -5,6 +6,8 @@ import 'package:grad_app/Screens/Photoshoot/SubSreens/AddPhotoStudio/add_photo_s
 import 'package:grad_app/Screens/Photoshoot/photo_studio_details.dart';
 import 'package:grad_app/Screens/Photoshoot/photoshoot_screen.dart';
 import 'package:grad_app/constants.dart';
+import '../../Components/photo_studio_item.dart';
+import '.././Photoshoot/Components/body.dart';
 
 class PhotoAlternate extends StatefulWidget {
   const PhotoAlternate({Key? key}) : super(key: key);
@@ -18,14 +21,16 @@ class _PhotoAlternateState extends State<PhotoAlternate> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: DefaultBackButton(backButtonColor: Colors.white),
-        backgroundColor: kprimary,
-        title: Text('Photo Studio'),
+        elevation: 0.5,
+        leading: DefaultBackButton(backButtonColor: Colors.black),
+        backgroundColor: Colors.white,
+        title: Text('Photo Studio', style: TextStyle(color: kprimary)),
+        centerTitle: true,
         actions: <Widget>[
           IconButton(
             icon: const Icon(
               Icons.delete,
-              color: Colors.white,
+              color: kprimary,
             ),
             onPressed: () {},
           ),

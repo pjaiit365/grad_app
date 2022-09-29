@@ -182,9 +182,9 @@ class _BodyState extends State<Body> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  SocialMedia(iconSrc: 'assets/icons/google-plus.svg'),
-                  SocialMedia(iconSrc: 'assets/icons/facebook.svg'),
-                  SocialMedia(iconSrc: 'assets/icons/twitter.svg'),
+                  SocialMedia(iconSrc: 'assets/icons/google_1.svg'),
+                  SocialMedia(iconSrc: 'assets/icons/facebook_1.svg'),
+                  SocialMedia(iconSrc: 'assets/icons/twitter_1.svg'),
                 ],
               ),
               SizedBox(height: 12),
