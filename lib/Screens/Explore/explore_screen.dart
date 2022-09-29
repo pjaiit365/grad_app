@@ -40,10 +40,10 @@ class Body extends StatelessWidget {
         Expanded(
           child: ListView.builder(
             scrollDirection: Axis.vertical,
-            itemCount: _postSrc.length,
+            itemCount: studioBackgroundImage.length,
             itemBuilder: (context, index) {
               return Posts(
-                postSrc: _postSrc[index],
+                postSrc: studioBackgroundImage[index],
               );
             },
           ),

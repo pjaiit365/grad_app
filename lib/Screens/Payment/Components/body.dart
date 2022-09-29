@@ -46,10 +46,12 @@ class _BodyState extends State<Body> {
 
   String dropdownvalue = 'Photoshoot Ticket';
 
-  final priceValue = ['125.00', '75.00', '100.00', '30.00'];
+  final priceValue = ['215.00', '75.00', '100.00', '30.00'];
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: DefaultAppBar(
         title: 'Payment',
@@ -139,11 +141,8 @@ class _BodyState extends State<Body> {
 
           Padding(
             padding: const EdgeInsets.only(bottom: 15),
-            child: ResetPasswordButton(
-              resetPasswordTextColor: Colors.white,
-              resetButtonColor: kprimary,
-              resetPasswordText: 'Pay',
-              press: () {
+            child: TextButton(
+              onPressed: () {
                 //TODO: add details from payment form to payment list
 
                 FirebaseFirestore.instance.collection('Payment List').add({
@@ -186,6 +185,19 @@ class _BodyState extends State<Body> {
                     );
                 }
               },
+              child: Text(
+                'Pay',
+                style: TextStyle(color: Colors.white, fontSize: 17),
+              ),
+              style: TextButton.styleFrom(
+                backgroundColor: kprimary,
+                elevation: 1.0,
+                padding: EdgeInsets.symmetric(
+                    horizontal: size.width * 0.42, vertical: 17),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    side: BorderSide.none),
+              ),
             ),
           ),
         ],

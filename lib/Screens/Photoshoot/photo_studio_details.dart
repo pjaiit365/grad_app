@@ -16,9 +16,10 @@ class PhotoStudioDetails extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0.5,
         title: Text(
-          'Elis Studio' + ' Details',
+          'Elis Studios' + ' Details',
           style: TextStyle(color: kprimary),
         ),
+        centerTitle: true,
       ),
       body: Body(),
     );
@@ -63,30 +64,56 @@ class Body extends StatelessWidget {
               Text('Location',
                   style: TextStyle(color: Colors.black, fontSize: 19)),
               SizedBox(height: 5),
-              Text(
-                '- Find my stand ' +
-                    'behind the Independece Hall Bus' +
-                    ' Stop.\n'
-                        '- I have a ' +
-                    'green tent' +
-                    ' with ' +
-                    '"ELIS STUDIOS"' +
-                    ' encrypted on a banner beside it.\n'
-                        '- Thank you.',
-                style: TextStyle(color: kprimary, fontSize: 17),
+              Container(
+                height: 160,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: CupertinoColors.systemGrey5,
+                    borderRadius: BorderRadius.circular(12)),
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Text(
+                    '- Find my stand ' +
+                        'behind the Independece Hall Bus' +
+                        ' Stop.\n'
+                            '- I have a ' +
+                        'green tent' +
+                        ' with ' +
+                        '"ELIS STUDIOS"' +
+                        ' encrypted on a banner beside it.\n'
+                            '- Thank you.',
+                    style: TextStyle(color: kprimary, fontSize: 17),
+                  ),
+                ),
               ),
               SizedBox(height: 20),
               Text('Contact',
                   style: TextStyle(color: Colors.black, fontSize: 19)),
-              SizedBox(height: 5),
-              Contact(
-                  contactType: 'Email',
-                  contactTypeIcon: Icons.email,
-                  contactTypeInfo: 'elisstudiogh@gmail.com'),
-              Contact(
-                  contactType: 'Mobile:',
-                  contactTypeIcon: Icons.phone,
-                  contactTypeInfo: '+233 500 111 372'),
+              Container(
+                  // height: 120,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: CupertinoColors.systemGrey5,
+                      borderRadius: BorderRadius.circular(12)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 5),
+                        Contact(
+                            contactType: 'Email',
+                            contactTypeIcon: Icons.email,
+                            contactTypeInfo: 'elisstudiogh@gmail.com'),
+                        Contact(
+                            contactType: 'Mobile:',
+                            contactTypeIcon: Icons.phone,
+                            contactTypeInfo: '+233 500 111 372')
+                      ],
+                    ),
+                  )),
             ],
           ),
         ),

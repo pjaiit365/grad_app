@@ -14,6 +14,11 @@ class _DateWidgetState extends State<DateWidget> {
   var _days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
@@ -42,7 +47,7 @@ class _DateWidgetState extends State<DateWidget> {
               ),
             ),
             Text(
-              '${10 + widget.index}',
+              '${18 + widget.index}',
               style: TextStyle(
                   color: _selectDate ? Colors.white : Colors.black,
                   fontWeight: _selectDate ? FontWeight.bold : FontWeight.normal,

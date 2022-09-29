@@ -12,7 +12,13 @@ class PaymentList extends StatefulWidget {
 }
 
 class _PaymentListState extends State<PaymentList> {
-  List payList = ['Apparel Collection', 'Cash', '30.00'];
+  List payList = [
+    'Apparel Collection',
+    'Photoshoot Ticket',
+    'Apparel Customization'
+  ];
+  List payMode = ['Credit/Debit Card', 'Cash on Pick-Up', 'Paypal'];
+  List payPrice = ['30.00', '125.00', '75.00'];
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +41,9 @@ class _PaymentListState extends State<PaymentList> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 18.0, vertical: 15),
                 child: PaymentListItem(
-                  paymentItem: payList[index][0],
-                  paymentMode: payList[index][1],
-                  price: payList[index][2],
+                  paymentItem: payList[index],
+                  paymentMode: payMode[index],
+                  price: payPrice[index],
                 ),
               );
             }

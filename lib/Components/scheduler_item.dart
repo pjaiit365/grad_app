@@ -77,7 +77,7 @@ class SchedulerItem extends StatelessWidget {
                           subSchedulerText,
                           softWrap: true,
                           style: TextStyle(
-                              fontSize: 19, color: schedulerContainerTextLight),
+                              fontSize: 18, color: schedulerContainerTextLight),
                         ),
                       ],
                     ),

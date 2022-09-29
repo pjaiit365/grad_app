@@ -12,6 +12,17 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  List reminderEvent = [
+    'Room Chores',
+    'Cleaning, washing, ironing, etc.',
+    schedulerGreenMain,
+    schedulerGreenSub,
+    schedulerGreenMainText,
+    schedulerGreenSubText,
+    '09:00',
+    '10:00',
+  ];
+
   @override
   Widget build(BuildContext context) {
     //for division between schedules and dates
@@ -45,44 +56,25 @@ class _BodyState extends State<Body> {
             ],
           ),
         ),
-        SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                SchedulerItem(
-                  timeStart: '09:00',
-                  timeEnd: '10:00',
-                  mainSchedulerText: 'Room Chores',
-                  subSchedulerText: 'Cleaning, washing, ironing, etc.',
-                  schedulerContainerDeep: schedulerGreenMain,
-                  schedulerContainerLight: schedulerGreenSub,
-                  schedulerContainerTextDeep: schedulerGreenMainText,
-                  schedulerContainerTextLight: schedulerGreenSubText,
-                ),
-                SchedulerItem(
-                  timeStart: '11:00',
-                  timeEnd: '12:00',
-                  mainSchedulerText: 'Room Chores',
-                  subSchedulerText: 'Cleaning, washing, ironing, etc.',
-                  schedulerContainerDeep: schedulerBlueMain,
-                  schedulerContainerLight: schedulerBlueSub,
-                  schedulerContainerTextDeep: schedulerBlueMainText,
-                  schedulerContainerTextLight: schedulerBlueSubText,
-                ),
-                SchedulerItem(
-                  timeStart: '13:00',
-                  timeEnd: '14:00',
-                  mainSchedulerText: 'Room Chores',
-                  subSchedulerText: 'Cleaning, washing, ironing, etc.',
-                  schedulerContainerDeep: schedulerOrangeMain,
-                  schedulerContainerLight: schedulerOrangeSub,
-                  schedulerContainerTextDeep: schedulerOrangeMainText,
-                  schedulerContainerTextLight: schedulerOrangeSubText,
-                ),
-              ],
-            ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+          child: ListView.separated(
+            itemBuilder: (context, index) {
+              return SchedulerItem(
+                mainSchedulerText: reminderEvent[index][0],
+                subSchedulerText: reminderEvent[index][1],
+                schedulerContainerDeep: reminderEvent[index][2],
+                schedulerContainerLight: reminderEvent[index][3],
+                schedulerContainerTextDeep: reminderEvent[index][4],
+                schedulerContainerTextLight: reminderEvent[index][5],
+                timeStart: reminderEvent[index][6],
+                timeEnd: reminderEvent[index][7],
+              );
+            },
+            separatorBuilder: (context, index) {
+              return SizedBox(height: 15);
+            },
+            itemCount: reminderEvent.length,
           ),
         )
       ],

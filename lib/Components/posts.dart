@@ -13,12 +13,9 @@ class Posts extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        height: 300,
+        height: 280,
         color: Colors.deepPurple.withOpacity(0.3),
-        child: Image.asset(
-          postSrc,
-          fit: BoxFit.fitWidth,
-        ),
+        child: Image.asset(postSrc, fit: BoxFit.fill),
       ),
     );
   }

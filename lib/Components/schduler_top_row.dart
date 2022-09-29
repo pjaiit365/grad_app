@@ -15,16 +15,16 @@ class SchdeulerTopRow extends StatelessWidget {
       children: [
         Text(
           'Daily ',
-          style: TextStyle(color: Colors.black, fontSize: 35),
+          style: TextStyle(color: Colors.black, fontSize: 33),
         ),
         Text(
           'Meetings',
-          style: TextStyle(color: Colors.black, fontSize: 35),
+          style: TextStyle(color: Colors.black, fontSize: 33),
         ),
         Spacer(),
         Text(
-          'Jan',
-          style: TextStyle(color: kprimary.withOpacity(0.89), fontSize: 22),
+          'Sept ' + '2022',
+          style: TextStyle(color: kprimary.withOpacity(0.89), fontSize: 19),
         )
       ],
     );

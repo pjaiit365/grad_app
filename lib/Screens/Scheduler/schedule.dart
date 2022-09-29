@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:grad_app/Components/add_new_event_widget.dart';
 import 'package:grad_app/Components/custom_bottom_nav.dart';
@@ -6,7 +7,7 @@ import 'package:grad_app/Components/schdule_type.dart';
 import 'package:grad_app/constants.dart';
 import 'package:grad_app/enum.dart';
 import 'package:popup_card/popup_card.dart';
-import '../Scheduler/Components/body.dart';
+import '../Scheduler/Components/bodyAlternate.dart';
 
 class ScheduleScreen extends StatefulWidget {
   const ScheduleScreen({Key? key}) : super(key: key);
@@ -16,6 +17,41 @@ class ScheduleScreen extends StatefulWidget {
 }
 
 class _ScheduleScreenState extends State<ScheduleScreen> {
+  final descriptionController = TextEditingController();
+  final timeStartController = TextEditingController();
+  final timeEndController = TextEditingController();
+  final eventTitleController = TextEditingController();
+  final deController = TextEditingController();
+
+  Future addEvent() async {
+    addEventDetails(
+      eventTitleController.text.trim(),
+      int.parse(timeStartController.text.trim()),
+      int.parse(timeEndController.text.trim()),
+      descriptionController.text.trim(),
+    );
+    Navigator.pop(context);
+  }
+
+  Future addEventDetails(
+      String title, int start, int end, String description) async {
+    await FirebaseFirestore.instance.collection('reminder').add({
+      'Title': title,
+      'Start': start,
+      'End': end,
+      'Description': description,
+    });
+  }
+
+  @override
+  void initState() {
+    eventTitleController.clear();
+    timeStartController.clear();
+    timeEndController.clear();
+    descriptionController.clear();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,6 +99,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                     ),
                     SizedBox(height: 20),
                     AddNewEventsWidget(
+                        textController: eventTitleController,
                         onChanged: (value) {},
                         newEventWidth: 0.9,
                         newEventHeight: 65,
@@ -71,11 +108,14 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         AddNewEventWidgetTimer(
-                            onChanged: (value) {},
-                            newEventWidth: 0.43,
-                            newEventHeight: 65,
-                            newEventHintText: 'Starts'),
+                          onChanged: (value) {},
+                          newEventWidth: 0.43,
+                          newEventHeight: 65,
+                          newEventHintText: 'Starts',
+                          textController: timeStartController,
+                        ),
                         AddNewEventWidgetTimer(
+                            textController: timeEndController,
                             onChanged: (value) {},
                             newEventWidth: 0.43,
                             newEventHeight: 65,
@@ -83,6 +123,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                       ],
                     ),
                     AddNewEventsWidget(
+                      textController: descriptionController,
                       onChanged: (value) {},
                       newEventWidth: 0.9,
                       newEventHeight: 200,
@@ -110,7 +151,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                         children: <Widget>[
                           ScheduleType(
                             schduleTypeBorderSideColor: schedulerGreenMain,
-                            press: () {},
+                            press: () {
+                              setState(() {});
+                            },
                             schduleTypeColor: schedulerGreenSub,
                             schduleTypeTextColor: schedulerGreenSubText,
                             schduleTypeText: 'Personal',
@@ -120,7 +163,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                             press: () {},
                             schduleTypeColor: schedulerBlueSub,
                             schduleTypeTextColor: schedulerBlueSubText,
-                            schduleTypeText: 'Work',
+                            schduleTypeText: 'School',
                           ),
                           ScheduleType(
                             schduleTypeBorderSideColor: schedulerOrangeMain,
@@ -140,7 +183,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                       ),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: addEvent,
                       child: Text(
                         'Add Event',
                         style: TextStyle(
