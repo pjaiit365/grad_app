@@ -1,16 +1,34 @@
-# grad_app
 
-A new Flutter project.
+#G-TO-G: A GRADUATION MOBILE APPLICATION FOR BOTH iOS AND ANDROID
+#KWAME NKRUMAH UNIVERSITY OF SCIENCE AND TECHNOLOGY, DEPARTMENT OF COMPUTER SCIENCE
+#PRESENTATION BY AYITEY EBENEZER
+#SUPERVISED BY DR. ERIC OSEI
 
-## Getting Started
+#ABSTRACT
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+#PROBLEM STATEMENT
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+#LITERATURE REVIEW
+
+
+#OBJECTIVES
+
+
+#METHODOLOGY
+
+
+#AIM OF PROJECT
+
+
+#FLOWCHART
+
+
+#RESULTS & UI DESIGN
+
+
+
+#IMPLEMENTATION
+
+#CONCLUSION
