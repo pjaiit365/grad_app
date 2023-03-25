@@ -75,12 +75,62 @@ Cloud Firestore is a noSQL database which means it does not follow any schema. H
 
 
 ### RESULTS & UI DESIGN
-![](images/welcome.png)
+
+#### Welcome & Login Screen
+![](images/welcome.png) ![](images/login.png)
 
 
 
+#### Sign Up & Forgot Password Screen
+
+![](images/signup.png) ![](images/forgot.png)
 
 
+
+#### Dashboard 1 & 2 
+
+![](images/dashboard.png) ![](images/explore.png)
+
+
+#### Dashboard 3 & 4
+
+![](images/reminderScreen.png) ![](images/profile.png)
+
+
+
+#### Reminder Screen
+
+![](images/reminderScreen.png) ![](images/addEvent.png)
+
+
+
+#### Photo Studios Screen
+
+![](images/photostudio.png) ![](images/photostudio2.png)
+
+
+
+#### Payment Screen
+
+![](images/payment.png) ![](images/creditCard.png)
+
+
+
+#### Payment Outcome Screen
+
+![](images/success.png) ![](images/cashPay.png)
+
+
+
+#### Summary of Payments made Screen
+
+![](images/paylist.png)
+
+
+
+#### Profile Screen
+
+![](images/profile.png) ![](images/editProfile.png)
 ### IMPLEMENTATION
 
  ● Students can pay for items such as photoshoot ticket, gown collection online
