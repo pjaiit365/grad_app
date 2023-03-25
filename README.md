@@ -20,6 +20,8 @@ IDE : Android Studio
 
 ### ABSTRACT
 
+Are you tired of the stressful and cumbersome graduation process? Look no further than G-to-G: Graduands to Graduates! This innovative project automates the graduation process for students, making it more efficient and less stressful. With features such as a personalized scheduler, online payment and booking options, and a customizable profile, G-to-G streamlines the graduation experience for both students and staff. Say goodbye to wasted university resources, missed deadlines, and difficulty finding photographers - G-to-G has got you covered.
+
 ### TITLE OF PROJECT
 
 G-to-G: Graduands to Graduates
