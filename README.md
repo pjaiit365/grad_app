@@ -75,7 +75,7 @@ Cloud Firestore is a noSQL database which means it does not follow any schema. H
 
 
 ### RESULTS & UI DESIGN
-
+![](images/welcome.png)
 
 
 
